@@ -12,6 +12,8 @@
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Tempusdominus Bbootstrap 4 -->
   <link rel="stylesheet" href="{{asset('dashboard_files/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
+
+  
   <!-- iCheck -->
   <link rel="stylesheet" href="{{asset('dashboard_files/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
   <!-- JQVMap -->
@@ -23,9 +25,36 @@
   <!-- Daterange picker -->
   <link rel="stylesheet" href="{{asset('dashboard_files/plugins/daterangepicker/daterangepicker.css')}}">
   <!-- summernote -->
-  <link rel="stylesheet" href="{{asset('dashboard_files/plugins/summernote/summernote-bs4.css')}}>
+  <link rel="stylesheet" href="{{asset('dashboard_files/plugins/summernote/summernote-bs4.css')}}">
+
+    {{-- <!-- Rtl theme-->
+    <link rel="stylesheet" href="{{asset('dashboard_files/css/bootstrap-rtl.min.css')}}">
+  <!-- template rtl version -->
+  <link rel="stylesheet" href="{{asset('dashboard_files/css/custom-style.css')}}">
+    <!-- Rtl theme--> --}}
+
+
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+  
+  @if (app()->getLocale() == 'ar')
+  {{-- <link rel="stylesheet" href="{{ asset('dashboard_files/css/font-awesome-rtl.min.css') }}"> --}}
+  <link rel="stylesheet" href="{{ asset('dashboard_files/css/AdminLTE-rtl.min.css') }}">
+  <link href="https://fonts.googleapis.com/css?family=Cairo:400,700" rel="stylesheet">
+  <link rel="stylesheet" href="{{ asset('dashboard_files/css/bootstrap-rtl.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('dashboard_files/css/rtl.css') }}">
+
+  <style>
+      body, h1, h2, h3, h4, h5, h6 {
+          font-family: 'Cairo', sans-serif !important;
+      }
+  </style>
+@else
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  {{-- <link rel="stylesheet" href="{{ asset('dashboard_files/css/font-awesome.min.css') }}"> --}}
+  <link rel="stylesheet" href="{{asset('dashboard_files/css/AdminLTE.min.css') }}">
+@endif
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -56,9 +85,6 @@
         </div>
       </div>
     </form>
-
-
-
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
@@ -155,9 +181,13 @@
     </ul>
   </nav>
   <!-- /.navbar -->
-</div>
-<!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
+
+@include('layouts.dashboard._aside')
+@include('partials._error')
+@include('partials._session')
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
@@ -174,15 +204,16 @@
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
+    <!-- /.content-header -->
 
- @include('layouts.dashboard._aside')
-
-
-    
- @yield('content')
-
- @include('partials._session')
-
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        @yield('content')
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
@@ -197,6 +228,7 @@
     <!-- Control sidebar content goes here -->
   </aside>
   <!-- /.control-sidebar -->
+</div>
 <!-- ./wrapper -->
 
 <!-- jQuery -->
