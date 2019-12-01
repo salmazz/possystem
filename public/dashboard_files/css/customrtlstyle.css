@@ -1,0 +1,17 @@
+.nav-sidebar .nav-link{
+    margin-right: -47px;
+}
+
+.nav-sidebar .nav-link>.right, .nav-sidebar .nav-link>p>.right{
+    right: 11rem;
+}
+/* 
+.content {
+    padding-right: 40px !important;
+
+} */
+
+.content-wrapper  {
+     margin-left: 0;
+     /* margin-right: 240px; */
+}

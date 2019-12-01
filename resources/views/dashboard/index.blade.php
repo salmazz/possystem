@@ -2,5 +2,11 @@
 
 
 @section('content')
- <h1>This is Dashboard</h1>
+
+<section class="content">
+    <div class="container">
+        this is dashboard
+    </div>
+</section>
+
 @endsection
