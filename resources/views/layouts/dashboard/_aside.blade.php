@@ -47,12 +47,26 @@
                   </a>
                 </li>
                 @endif
+
+
+                @if(auth()->user()->hasPermission('read_products'))
                 <li class="nav-item">
-                <a href="{{route('dashboard.categories.index')}}" class="nav-link">
+                  <a href="{{route('dashboard.products.index')}}" class="nav-link active">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>@lang('site.categories')</p>
+                    <p> @lang('site.products')
+                    </p>
                   </a>
                 </li>
+                @endif
+                @if(auth()->user()->hasPermission('read_categories'))
+                <li class="nav-item">
+                  <a href="{{route('dashboard.categories.index')}}" class="nav-link active">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p> @lang('site.categories')
+                    </p>
+                  </a>
+                </li>
+                @endif
             
               </ul>
         

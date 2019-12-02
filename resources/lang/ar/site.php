@@ -28,7 +28,7 @@ return [
     'updated_successfully' => 'تم تعديل البيانات بنجاح',
     'deleted_successfully' => 'تم حذف البيانات بنجاح',
 
-    'no_data_found' => 'للاسف لا يوجد اي سجلات',
+    'no_date_found' => 'للاسف لا يوجد اي سجلات',
     'no_records' => 'للاسف لا يوجد اي سجلات',
 
     'clients' => 'العملاء',

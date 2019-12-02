@@ -239,6 +239,7 @@
 <script src="{{asset('dashboard_files/plugins/summernote/summernote-bs4.min.js')}}"></script>
 <!-- overlayScrollbars -->
 <script src="{{asset('dashboard_files/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
+<script src="{{asset('dashboard_files/plugins/ckeditor/ckeditor.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('dashboard_files/js/adminlte.js')}}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
@@ -273,7 +274,7 @@ $('.delete').click(function (e) {
 
 
 
-// CKEDITOR.config.language =  "{{ app()->getLocale() }}";
+CKEDITOR.config.language =  "{{ app()->getLocale() }}";
 
 
 $(".image").change(function() {
@@ -286,6 +287,7 @@ $(".image").change(function() {
     }
     
     reader.readAsDataURL(this.files[0]);
+ 
   }
 });
 
