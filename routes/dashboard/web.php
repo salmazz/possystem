@@ -10,12 +10,14 @@ Route::group(
 
       Route::Resource('categories','Dashboard\CategoryController')->except(['show']);
 
-      
+
       // products Routes 
 
       Route::Resource('products','Dashboard\ProductController')->except(['show']);
       // users Routes 
       Route::Resource('users','Dashboard\UserController')->except(['show']);
+      //client Routes 
+      Route::Resource('clients','Dashboard\ClientController')->except(['show']);
 
     });
      // user Routes

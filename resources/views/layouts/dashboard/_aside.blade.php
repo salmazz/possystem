@@ -67,6 +67,15 @@
                   </a>
                 </li>
                 @endif
+                @if(auth()->user()->hasPermission('read_clients'))
+                <li class="nav-item">
+                  <a href="{{route('dashboard.clients.index')}}" class="nav-link active">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p> @lang('site.clients')
+                    </p>
+                  </a>
+                </li>
+                @endif
             
               </ul>
         
