@@ -7,7 +7,10 @@ Route::group(
     Route::prefix('dashboard')->name('dashboard.')->middleware(['auth'])->group(function(){
       Route::get('/index','Dashboard\DashboardController@index')->name('index');
        // Categoriers Routes
+
       Route::Resource('categories','Dashboard\CategoryController')->except(['show']);
+
+      
       // products Routes 
 
       Route::Resource('products','Dashboard\ProductController')->except(['show']);

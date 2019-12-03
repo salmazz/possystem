@@ -37,6 +37,15 @@
                             <input type="text" name="search" class="form-control" placeholder="@lang('site.search')"
                                 value="{{ request()->search }}">
                         </div>
+                        <div class="col-md-4">
+                            <select name="category_id" class="form-control" id="">
+                                <option value="">فلتر الاقسام</option>
+                                @foreach ($categories as $category)
+                            <option value="{{$category->id}}" {{ request()->category_id == $category->id ? 'selected' : " " }} > {{$category->name}}</option>
+
+                                @endforeach
+                            </select>
+                        </div>
 
                         <div class="col-md-4">
                             <button type="submit" class="btn btn-primary">
@@ -77,7 +86,9 @@
                                         <th>@lang('site.description')</th>
                                         <th>@lang('site.image')</th>
                                         <th>@lang('site.purchase_price')</th>
+                                        <th>@lang('site.category')</th>
                                         <th>@lang('site.sale_price')</th>
+                                        <th>@lang('site.profit_percent')</th>
                                         <th>@lang('site.stock')</th>
 
                                         <th>@lang('site.action')</th>
@@ -91,8 +102,12 @@
                                         <td>{!!  $product->description  !!}</td>
                                         <td><img style="width:100px;height:100px" src="{{$product->image_path}}" alt=""></td>
                                         <td>{{$product->purchase_price}}</td>
+                                        <td>{{ $product->category->name }}</td>
                                         <td>{{$product->sale_price}}</td>
+                                        <td>{{$product->profit_percent}} % </td>
                                         <td>{{$product->stock}}</td>
+                                    
+                                    
                             
                                         <td>
                                             <a class="btn btn-info btn-sm" style="display:inline-block"
