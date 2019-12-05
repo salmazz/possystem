@@ -2,10 +2,10 @@
 Route::group(
   [
     'prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
-  ], function(){ 
+   ], function(){ 
 
     Route::prefix('dashboard')->name('dashboard.')->middleware(['auth'])->group(function(){
-      Route::get('/index','Dashboard\DashboardController@index')->name('index');
+      Route::get('/','Dashboard\WelcomeController@index')->name('welcome');
        // Categoriers Routes
 
       Route::Resource('categories','Dashboard\CategoryController')->except(['show']);
@@ -18,8 +18,9 @@ Route::group(
       Route::Resource('users','Dashboard\UserController')->except(['show']);
       //client Routes 
       Route::Resource('clients','Dashboard\ClientController')->except(['show']);
+      Route::Resource('clients.orders','Dashboard\Client\OrderController')->except(['show']);
 
     });
-     // user Routes
   });
+
 

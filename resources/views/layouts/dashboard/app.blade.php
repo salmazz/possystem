@@ -246,6 +246,8 @@
 <script src="{{asset('dashboard_files/js/pages/dashboard.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('dashboard_files/js/demo.js')}}"></script>
+
+<script src="{{asset('dashboard_files/js/jquery.number.min.js')}}"></script>
 <script>
 $('.delete').click(function (e) {
 
@@ -277,22 +279,24 @@ $('.delete').click(function (e) {
 CKEDITOR.config.language =  "{{ app()->getLocale() }}";
 
 
-$(".image").change(function() {
-  // let that = $(this);
-  if (this.files && this.files[0]) {
-    var reader = new FileReader();
+// $(".image").change(function() {
+//   // let that = $(this);
+//   if (this.files && this.files[0]) {
+//     var reader = new FileReader();
     
-    reader.onload = function(e) {
-      $('.img-preview').attr('src', e.target.result);
-    }
+//     reader.onload = function(e) {
+//       $('.img-preview').attr('src', e.target.result);
+//     }
     
-    reader.readAsDataURL(this.files[0]);
+//     reader.readAsDataURL(this.files[0]);
  
-  }
-});
-
+//   }
+// });
 //end of ready
 
 </script>
+<script src="{{asset('dashboard_files/js/custom/order.js')}}"> </script>
+<script src="{{asset('dashboard_files/js/custom/image_preview.js')}}"> </script>
+
 </body>
 </html>

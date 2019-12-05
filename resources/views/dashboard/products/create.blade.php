@@ -92,7 +92,7 @@
               </div>
               <div class="form-group">
                   <label for="">@lang('site.sale_price')</label>
-                  <input type="number" name="sale_price" value="{{ old('sale_price') }}" class="form-control ">
+                  <input type="number" step="0.01" name="sale_price" value="{{ old('sale_price') }}" class="form-control ">
     
                 </div>
                 <div class="form-group">
