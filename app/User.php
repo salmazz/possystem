@@ -56,4 +56,7 @@ class User extends Authenticatable
     public function getImagePathAttribute(){
         return asset('uploads/user_images/'. $this->image);
     }
+    public function orders(){
+        return $this->hasMany(Order::class);
+    }// end of orders 
 }

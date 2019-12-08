@@ -5,6 +5,8 @@ Route::group(
    ], function(){ 
 
     Route::prefix('dashboard')->name('dashboard.')->middleware(['auth'])->group(function(){
+
+      
       Route::get('/','Dashboard\WelcomeController@index')->name('welcome');
        // Categoriers Routes
 
@@ -19,6 +21,8 @@ Route::group(
       //client Routes 
       Route::Resource('clients','Dashboard\ClientController')->except(['show']);
       Route::Resource('clients.orders','Dashboard\Client\OrderController')->except(['show']);
+
+      Route::Resource('orders','Dashboard\OrderController')->except(['show']);
 
     });
   });

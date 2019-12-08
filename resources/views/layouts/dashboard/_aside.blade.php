@@ -76,6 +76,15 @@
                   </a>
                 </li>
                 @endif
+                @if(auth()->user()->hasPermission('read_orders'))
+                <li class="nav-item">
+                  <a href="{{route('dashboard.orders.index')}}" class="nav-link active">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p> @lang('site.orders')
+                    </p>
+                  </a>
+                </li>
+                @endif
             
               </ul>
         

@@ -1,13 +1,17 @@
 $(document).ready(function () {
+    // add product bnt 
     $('.add-product-btn').on('click', function (e) {
         e.preventDefault();
         var name = $(this).data('name');
         var id = $(this).data('id');
         var price = $.number($(this).data('price'), 2);
+            //    <input type="hidden" name="product_ids[]" value="${id}">
+            $(this).removeClass('btn-success').addClass('btn-default disabled');
+
         var html = `
         <tr>
         <td> ${name}</td>
-        <td><input type="number" data-price="${price}" name="quantities[]" min="1" value="1" class="form-control product-quantity"></td>
+        <td><input type="number" data-price="${price}" name="products[${id}][quantity]" min="1" value="1" class="form-control product-quantity"></td>
         <td class="product-price">${price}</td>
         <td> <button class="btn btn-danger btn-sm remove-product-btn" data-id="${id}">
         <span class="fa fa-trash"> </span>
@@ -15,7 +19,6 @@ $(document).ready(function () {
         </tr>
         `;
 
-        $(this).removeClass('btn-success').addClass('btn-default disabled');
         $('.order-list').append(html);
         calculate_total();
 
@@ -41,7 +44,7 @@ $(document).ready(function () {
     $('body').on('keyup change', '.product-quantity', function () {
 
         var quantity = parseInt($(this).val()); //2
-        var unitPrice = $(this).data('price'); //150
+        var unitPrice = parseFloat($(this).data('price').replace(/,/g, '')); //150
         console.log(unitPrice);
         $(this).closest('tr').find('.product-price').html($.number(quantity * unitPrice, 2));
         calculate_total();
