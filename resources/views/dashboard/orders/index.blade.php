@@ -76,13 +76,11 @@
                                             {{--</td>--}}
                                             <td>{{ $order->created_at->toFormattedDateString() }}</td>
                                             <td>
-                                                {{-- <button class="btn btn-primary btn-sm order-products"
-                                                        data-url="{{ route('dashboard.orders.products', $order->id) }}"
-                                                        data-method="get"
-                                                >
+                                                <button class="btn btn-primary btn-sm order-products"
+                                                        data-url="{{ route('dashboard.orders.products', $order->id) }}" data-method="get">
                                                     <i class="fa fa-list"></i>
                                                     @lang('site.show')
-                                                </button> --}}
+                                                </button>
                                                 @if (auth()->user()->hasPermission('update_orders'))
                                                     <a href="{{ route('dashboard.clients.orders.edit', ['client' => $order->client->id, 'order' => $order->id]) }}" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i> @lang('site.edit')</a>
                                                 @else
@@ -140,6 +138,7 @@
                             </div>
 
                             <div id="order-product-list">
+                  {{-- @include('dashboard.orders._products') --}}
 
                             </div><!-- end of order product list -->
 

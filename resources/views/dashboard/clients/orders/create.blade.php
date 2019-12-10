@@ -33,7 +33,7 @@
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    {{-- @if($orders->count() > 0) --}}
+                    @if($orders->count() > 0)
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">@lang('site.categories')</h3>
@@ -52,7 +52,7 @@
                                                 {{$category->name}}
                                             </button>
                                         </h2>
-                                    </div>
+                                    </div> <!-- card header -->
 
                                     <div id="{{ str_replace(' ', '-', $category->name) }}" class="collapse show"
                                         aria-labelledby="headingOne" data-parent="#accordionExample">
@@ -85,8 +85,8 @@
                                                     @endforeach
 
                                                 </tbody>
-																						</table>
-																						<!-- end of table-->
+											</table>
+										<!-- end of table-->
                                         </div>
                                     </div>
                                 </div>
@@ -94,14 +94,14 @@
 
 
                             </div>
-                        </div>
-                        {{-- {{ $orders->appends(request()->query())->links() }} --}}
+                        </div> <!-- card-->
+                        {{ $orders->appends(request()->query())->links() }}
 
-                        {{-- @else
+                       @else
 
                         <h2>@lang('site.no_date_found')</h2>
 
-                        @endif --}}
+                        @endif 
                     </div>
                 </div>
 
@@ -135,6 +135,58 @@
                                 class="fa fa-plus"></i> @lang('site.add_order')</button>
 
                     </form>
+
+                    @if ($client->orders->count() > 0)
+
+                    <div class="card card-primary">
+
+                        <div class="card-header">
+
+                            <h3 class="card-title" style="margin-bottom: 10px">@lang('site.previous_orders')
+                                <small>{{ $orders->total() }}</small>
+                            </h3>
+
+                        </div><!-- end of box header -->
+
+                        <div class="card-body">
+
+                            <div class="accordion" id="acc">
+                                    @foreach ($orders as $order)
+        
+                                        <div class="card">
+                                            <div class="card-header" id="headingOne">
+                                                <h2 class="mb-0">
+                                                <button class="btn btn-link" type="button" data-toggle="collapse"
+                                                        data-target="#{{ $order->created_at->format('d-m-Y-s') }}" aria-expanded="true" aria-controls="collapseOne">
+                                                        {{ $order->created_at->toFormattedDateString() }}
+                                                    </button>
+                                                </h2>
+                                            </div> <!-- card header -->
+        
+                                            <div id="{{ $order->created_at->format('d-m-Y-s') }}" class="collapse show"
+                                                aria-labelledby="headingOne" data-parent="#acc">
+                                                <div class="card-body">
+                                                 
+                                                        <ul class="list-group">
+                                                                @foreach ($order->products as $product)
+                                                                    <li class="list-group-item">{{ $product->name }}</li>
+                                                                @endforeach
+
+                                                        </ul>
+                                                <!-- end of table-->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @endforeach
+        
+        
+                                    </div>
+                            {{ $orders->links() }}
+                        </div>
+                            </div>
+                        </div>
+                        </div>
+                        @endif
                 </div>
     </section>
 </div>

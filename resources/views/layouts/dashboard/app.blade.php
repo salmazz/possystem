@@ -28,13 +28,13 @@
   <link rel="stylesheet" href="{{asset('dashboard_files/plugins/summernote/summernote-bs4.css')}}">
    {{--noty--}}
    {{-- <link rel="stylesheet" href="{{ asset('dashboard_files/plugins/noty/noty.css') }}">
+  
    <script src="{{ asset('dashboard_files/plugins/noty/noty.min.js') }}"></script> --}}
     {{-- <!-- Rtl theme-->
     <link rel="stylesheet" href="{{asset('dashboard_files/css/bootstrap-rtl.min.css')}}">
   <!-- template rtl version -->
   <link rel="stylesheet" href="{{asset('dashboard_files/css/custom-style.css')}}">
     <!-- Rtl theme--> --}}
-
 
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
@@ -43,6 +43,7 @@
   @if (app()->getLocale() == 'ar')
   <link rel="stylesheet" href="{{ asset('dashboard_files/css/customrtlstyle.css') }}">
   <link rel="stylesheet" href="{{ asset('dashboard_files/css/AdminLTE-rtl.min.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
   <link href="https://fonts.googleapis.com/css?family=Cairo:400,700" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('dashboard_files/css/bootstrap-rtl.min.css') }}">
   <link rel="stylesheet" href="{{ asset('dashboard_files/css/rtl.css') }}">
@@ -54,6 +55,35 @@
 .main-sidebar{
   width: 250px ;
 }
+
+.loader {
+            border: 5px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 5px solid #367FA9;
+            width: 60px;
+            height: 60px;
+            -webkit-animation: spin 1s linear infinite; /* Safari */
+            animation: spin 1s linear infinite;
+        }
+
+        /* Safari */
+        @-webkit-keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+            }
+            100% {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
   </style>
 @else
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
@@ -212,7 +242,8 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="{{asset('dashboard_files/plugins/jquery/jquery.min.js')}}"></script>
+{{-- <script src="{{asset('dashboard_files/plugins/jquery/jquery.min.js')}}"></script> --}}
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="{{asset('dashboard_files/plugins/jquery-ui/jquery-ui.min.js')}}"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
@@ -222,17 +253,20 @@
 <!-- Bootstrap 4 -->
 <script src="{{asset('dashboard_files/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- ChartJS -->
+
+<script src="{{asset('dashboard_files/js/printThis.js')}}"></script>
 <script src="{{asset('dashboard_files/plugins/chart.js/Chart.min.js')}}"></script>
 <!-- Sparkline -->
 <script src="{{asset('dashboard_files/plugins/sparklines/sparkline.js')}}"></script>
-<!-- JQVMap -->
+{{-- <!-- JQVMap -->
 <script src="{{asset('dashboard_files/plugins/jqvmap/jquery.vmap.min.js')}}"></script>
-<script src="{{asset('dashboard_files/plugins/jqvmap/maps/jquery.vmap.world.js')}}"></script>
+<script src="{{asset('dashboard_files/plugins/jqvmap/maps/jquery.vmap.world.js')}}"></script> --}}
 <!-- jQuery Knob Chart -->
 <script src="{{asset('dashboard_files/plugins/jquery-knob/jquery.knob.min.js')}}"></script>
 <!-- daterangepicker -->
 <script src="{{asset('dashboard_files/plugins/moment/moment.min.js')}}"></script>
 <script src="{{asset('dashboard_files/plugins/daterangepicker/daterangepicker.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
 <!-- Tempusdominus Bootstrap 4 -->
 <script src="{{asset('dashboard_files/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')}}"></script>
 <!-- Summernote -->

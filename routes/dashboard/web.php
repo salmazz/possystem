@@ -23,6 +23,7 @@ Route::group(
       Route::Resource('clients.orders','Dashboard\Client\OrderController')->except(['show']);
 
       Route::Resource('orders','Dashboard\OrderController')->except(['show']);
+      Route::get('orders/{order}/order','Dashboard\OrderController@products')->name('orders.products');
 
     });
   });

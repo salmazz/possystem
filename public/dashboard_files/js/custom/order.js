@@ -48,8 +48,34 @@ $(document).ready(function () {
         console.log(unitPrice);
         $(this).closest('tr').find('.product-price').html($.number(quantity * unitPrice, 2));
         calculate_total();
-
+    
     }); //end of product quantity change
+    $('.order-products').on('click',function(e){
+      e.preventDefault();
+    
+     
+      $('#loading').css('display', 'flex');
+        
+      var url = $(this).data('url');
+      var method = $(this).data('method');
+      $.ajax({
+          url: url,
+          method: method,
+          success: function(data) {
+
+              $('#loading').css('display', 'none');
+              $('#order-product-list').empty();
+              $('#order-product-list').append(data);
+            console.log(data);
+
+          }
+      });
+    }); // end of order products
+     //print order
+     $(document).on('click','.print-btn',function(){
+      $('#print-area').printThis();
+     });
+
 });
 
 //  calculate total function 
