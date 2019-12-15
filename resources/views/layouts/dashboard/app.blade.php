@@ -126,10 +126,6 @@
                     {{-- <a href="{{route('dashbaord.orders')}}" class="nav-link">Orders</a> --}}
                 </li>
 
-                
-<li><a href="{{ url('locale/en') }}" ><i class="fa fa-language"></i> EN</a></li>
-
-<li><a href="{{ url('locale/ar') }}" ><i class="fa fa-language"></i> ar</a></li>
 
 
             </ul>
