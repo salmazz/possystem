@@ -73,7 +73,7 @@
             <div class="card">
                 <div class="card-header d-flex p-0">
                     @php 
-                 $models= ['users','categories','products'];
+                 $models= ['users','categories','products','orders','clients'];
                  $maps = ['create','read','update','delete'];
                    
                     @endphp
@@ -81,7 +81,7 @@
                   <ul class="nav nav-pills ml-auto p-2">
                   @foreach ($models as $index=>$model )
                   <li class="nav-item">
-                      <a class="nav-link {{$index == 0 ? 'active' : ' '}}" href="#{{$model}}" data-toggle="tab">@lang('site. ' . $model)</a></li>
+                      <a class="nav-link {{$index == 0 ? 'active' : ' '}}" href="#{{$model}}" data-toggle="tab">@lang('site.'.$model)</a></li>
                   @endforeach
                   
                  
@@ -125,7 +125,7 @@
                                 <input type="password" name="password_confirmation" class="form-control" >
                                 </div> --}}
 
-                                <div class="form-group">
+                                <div class="form-group text-center:">
                                     <input type="submit" value="@lang('site.edit')" class="btn btn-primary" >
                                     </div>
              </form>

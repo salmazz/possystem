@@ -21,13 +21,11 @@
     </div>
     <!-- /.content-header -->
     <section class="content">
-        <div class="box box-primary">
+        <div class="card card-warning">
 
-            <div class="box-header p-3 with-border">
+            <div class="card-header p-3 with-border">
 
-                <h3 class="box-title" style="margin-bottom: 15px">@lang('site.clients')
-                    <small>{{ $clients->total() }}</small>
-                </h3>
+              
 
                 <form action="{{ route('dashboard.clients.index') }}" method="get">
 
@@ -39,13 +37,13 @@
                         </div>
 
                         <div class="col-md-4">
-                            <button type="submit" class="btn btn-primary">
+                            <button type="submit" class="btn btn-default">
                                 <i class="fa fa-search"></i>
                                 @lang('site.search')
                             </button>
 
                             @if(auth()->user()->hasPermission('create_clients'))
-                            <a class="btn btn-primary" href="{{route('dashboard.clients.create')}}">
+                            <a class="btn btn-default" href="{{route('dashboard.clients.create')}}">
                                 <i class="fa fa-plus"></i>
                                 @lang('site.add')
                             </a>
@@ -87,7 +85,7 @@
                                         <td>{{$client->name}}</td>
                                         <td>{{ is_array($client->phone) ? implode($client->phone, '-') : $client->phone }}</td>
                                         <td>{{$client->address}}</td>
-                                    <td><a href="{{ route('dashboard.clients.orders.create',$client->id )}}" class="btn btn-primary">@lang('site.add_order')</a></td>
+                                    <td><a href="{{ route('dashboard.clients.orders.create',$client->id )}}" class="btn btn-primary btn-sm">@lang('site.add_order')</a></td>
                                    
                                         <td>
                                                 @if (auth()->user()->hasPermission('update_clients'))

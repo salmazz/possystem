@@ -8,7 +8,8 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">@lang('site.products')</h1>
+                    <h1 class="m-0 text-dark">@lang('site.products')                     <small>{{ $products->total() }}</small>
+                    </h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -21,13 +22,9 @@
     </div>
     <!-- /.content-header -->
     <section class="content">
-        <div class="box box-primary">
+        <div class="card card-primary">
 
-            <div class="box-header p-3 with-border">
-
-                <h3 class="box-title" style="margin-bottom: 15px">@lang('site.products')
-                    <small>{{ $products->total() }}</small>
-                </h3>
+            <div class="card-header p-3 with-border">
 
                 <form action="{{ route('dashboard.products.index') }}" method="get">
 
@@ -39,7 +36,7 @@
                         </div>
                         <div class="col-md-4">
                             <select name="category_id" class="form-control" id="">
-                                <option value="">فلتر الاقسام</option>
+                                <option value="">@lang('site.categories')</option>
                                 @foreach ($categories as $category)
                             <option value="{{$category->id}}" {{ request()->category_id == $category->id ? 'selected' : " " }} > {{$category->name}}</option>
 
@@ -78,7 +75,7 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table class="table table-bordered">
+                            <table class="table table-bordered table-responsive">
                                 <thead>
                                     <tr>
                                         <th style="width: 10px">#</th>
@@ -126,8 +123,11 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                            <div class="d-flex justify-content-center">
+
+                                {{ $products->appends(request()->query())->links() }}
+                            </div>
                         </div>
-                        {{ $products->appends(request()->query())->links() }}
 
                         @else
 

@@ -75,6 +75,8 @@ class UserController extends Controller
             'premissions' => 'required|min:1'
 
         ]);
+        // return response()->json();
+
 
         $request_data = $request->except(['password', 'password_confirmation', 'permissions', 'image']);
         $request_data['password'] = bcrypt($request->password);
@@ -87,10 +89,9 @@ class UserController extends Controller
         // dd($request_date);
         $user = User::create($request_data);
         $user->attachRole('admin');
-        $user->syncPermissions($request->permissions);
-
-        session()->flash('success', 'site.added_successfully');
-
+        $user->syncPermissions($request->premissions);
+        session()->flash('success', __('site.added_successfully'));
+    
         return redirect()->route('dashboard.users.index');
     } //end of store
 
@@ -140,7 +141,7 @@ class UserController extends Controller
         $user->update($request_data);
         $user->syncPermissions($request->permissions);
 
-        session()->flash('success', 'site.updated_successfully');
+        session()->flash('success', __('site.updated_successfully'));
 
         return redirect()->route('dashboard.users.index');
     }
@@ -161,7 +162,7 @@ class UserController extends Controller
         } //end of if
 
         $user->delete();
-        session()->flash('success', 'site.deleted_successfully');
+        session()->flash('success', __('site.deleted_succesfully'));
 
         return redirect()->route('dashboard.users.index');
     }

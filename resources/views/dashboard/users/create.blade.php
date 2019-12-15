@@ -64,10 +64,10 @@
                         </div>
 
                         <div class="form-group">
-                        <img src="{{asset('uploads/user_images/default.png')}}" alt="" class="img-fluid img-preview" style="width:100px">
+                        <img src="{{asset('uploads/user_images/default.png')}}" alt="" class="img-fluid preview" style="width:100px">
                         </div>
                         <div class="form-group">
-                          <label for="">@lang('site.permissions')</label>
+                          <label for="">@lang('site.premissions')</label>
                        
                             <!-- Custom Tabs -->
             <div class="card">
@@ -81,11 +81,9 @@
                   <ul class="nav nav-pills ml-auto p-2">
                   @foreach ($models as $index=>$model )
                   <li class="nav-item">
-                      <a class="nav-link {{$index == 0 ? 'active' : ' '}}" href="#{{$model}}" data-toggle="tab">@lang('site. ' . $model)</a></li>
+                      <a class="nav-link {{$index == 0 ? 'active' : ' '}}" href="#{{$model}}" data-toggle="tab">@lang('site.'.$model)</a></li>
                   @endforeach
-                  
-                 
-            
+        
                   </ul>
                 </div><!-- /.card-header -->
                 <div class="card-body">
@@ -99,8 +97,8 @@
                     <div class="tab-pane  {{$index == 0 ? 'active' : ' '}}" id="{{$model}}">
                         @foreach ($maps as $map )
                       <div class="form-check">
-                      <input type="checkbox"  name="permissions[]" class="form-check-input" value="{{$map . '_' . $model}}" id="exampleCheck1">
-                          <label class="form-check-label" for="exampleCheck1">@lang('site.' . $map)</label>
+                      <input type="checkbox"  name="premissions[]" class="form-check-input" value="{{$map . '_' . $model}}" id="exampleCheck1">
+                          <label class="form-check-label" for="exampleCheck1">@lang('site.'. $map)</label>
  
                   </div>
                                 

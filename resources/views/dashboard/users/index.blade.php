@@ -8,7 +8,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">@lang('site.users')</h1>
+                    <h1 class="m-0 text-dark">@lang('site.users') <small>{{ $users->total() }}</small></h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -21,12 +21,10 @@
     </div>
     <!-- /.content-header -->
     <section class="content">
-        <div class="box box-primary">
+        <div class="card card-primary">
 
-            <div class="box-header p-3 with-border">
+            <div class="card-header p-3 with-border">
 
-              <h3 class="box-title" style="margin-bottom: 15px">@lang('site.users') <small>{{ $users->total() }}</small>
-                </h3> 
 
                 <form action="{{ route('dashboard.users.index') }}" method="get">
 

@@ -7,11 +7,12 @@
         <section class="content-header">
 
             <h1>@lang('site.orders')
-                <small>{{ $orders->total() }} @lang('site.orders')</small>
+                <small>{{ $orders->total() }}</small>
             </h1>
 
             <ol class="breadcrumb">
                 <li><a href="{{ route('dashboard.welcome') }}"><i class="fa fa-dashboard"></i> @lang('site.dashboard')</a></li>
+                /
                 <li class="active">@lang('site.orders')</li>
             </ol>
         </section>
@@ -22,11 +23,10 @@
 
                 <div class="col-md-8">
 
-                    <div class="box box-primary">
+                    <div class="card card-primary">
 
-                        <div class="box-header">
+                        <div class="card-header">
 
-                            <h3 class="box-title" style="margin-bottom: 10px">@lang('site.orders')</h3>
 
                             <form action="{{ route('dashboard.orders.index') }}" method="get">
 
@@ -37,7 +37,7 @@
                                     </div>
 
                                     <div class="col-md-4">
-                                        <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> @lang('site.search')</button>
+                                        <button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-search"></i> @lang('site.search')</button>
                                     </div>
 
                                 </div><!-- end of row -->
@@ -48,9 +48,9 @@
 
                         @if ($orders->count() > 0)
 
-                            <div class="box-body table-responsive">
+                            <div class="card-body table-responsive table-bordered">
 
-                                <table class="table table-hover">
+                                <table class="table  table-hover">
                                     <tr>
                                         <th>@lang('site.client_name')</th>
                                         <th>@lang('site.price')</th>
@@ -63,17 +63,7 @@
                                         <tr>
                                             <td>{{ $order->client->name }}</td>
                                             <td>{{ number_format($order->total_price, 2) }}</td>
-                                            {{--<td>--}}
-                                                {{--<button--}}
-                                                    {{--data-status="@lang('site.' . $order->status)"--}}
-                                                    {{--data-url="{{ route('dashboard.orders.update_status', $order->id) }}"--}}
-                                                    {{--data-method="put"--}}
-                                                    {{--data-available-status='["@lang('site.processing')", "@lang('site.finished') "]'--}}
-                                                    {{--class="order-status-btn btn {{ $order->status == 'processing' ? 'btn-warning' : 'btn-success disabled' }} btn-sm"--}}
-                                                {{-->--}}
-                                                    {{--@lang('site.' . $order->status)--}}
-                                                {{--</button>--}}
-                                            {{--</td>--}}
+                                        
                                             <td>{{ $order->created_at->toFormattedDateString() }}</td>
                                             <td>
                                                 <button class="btn btn-primary btn-sm order-products"
@@ -124,13 +114,13 @@
 
                 <div class="col-md-4">
 
-                    <div class="box box-primary">
+                    <div class="card card-danger">
 
-                        <div class="box-header">
-                            <h3 class="box-title" style="margin-bottom: 10px">@lang('site.show_products')</h3>
+                        <div class="card-header">
+                            <h3 class="card-title" style="margin-bottom: 10px">@lang('site.show_products')</h3>
                         </div><!-- end of box header -->
 
-                        <div class="box-body">
+                        <div class="card-body">
 
                             <div style="display: none; flex-direction: column; align-items: center;" id="loading">
                                 <div class="loader"></div>

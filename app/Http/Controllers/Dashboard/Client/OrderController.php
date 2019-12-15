@@ -13,10 +13,12 @@ use App\Http\Controllers\Controller;
 class OrderController extends Controller
 {
     public function create(Client $client)
-    {
+    { 
+
         $categories = Category::with('products')->get();
         $orders = $client->orders()->with('products')->paginate(5);
-        return view('dashboard.clients.orders.create', compact( 'client', 'categories', 'orders'));
+      
+        return view('dashboard.clients.orders.create',compact('orders','categories','client'));;
 
     }//end of create
 

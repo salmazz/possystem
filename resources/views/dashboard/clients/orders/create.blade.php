@@ -20,12 +20,12 @@
         </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
-    <section class="content">
-        <div class="box box-primary">
+    <section class="content" style="padding-right:25px;">
+        <div class="card card-primary ">
 
-            <div class="box-header p-3 with-border">
+            <div class="card-header p-3 with-border">
 
-                <h3 class="box-title" style="margin-bottom: 15px">@lang('site.orders')
+                <h3 class="card-title text-right" style="margin-bottom: 15px">@lang('site.orders')
 
                 </h3>
 
@@ -33,7 +33,7 @@
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    @if($orders->count() > 0)
+                    {{-- @if($orders->count() > 0) --}}
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">@lang('site.categories')</h3>
@@ -97,11 +97,11 @@
                         </div> <!-- card-->
                         {{ $orders->appends(request()->query())->links() }}
 
-                       @else
+                       {{-- @else
 
                         <h2>@lang('site.no_date_found')</h2>
 
-                        @endif 
+                        @endif  --}}
                     </div>
                 </div>
 
