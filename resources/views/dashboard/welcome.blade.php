@@ -69,6 +69,40 @@
 
             </div><!-- end of row -->
 
+            <div class="card">
+           <div class="card-header">
+               @lang('site.categories')
+           </div>
+             <div class="card-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th style="width: 10px">#</th>
+                            <th>@lang('site.name')</th>
+                            <th>@lang('site.products_count')</th>
+                            <th>@lang('site.related_products')</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($categories as $index=>$category )
+                        <tr>
+                            <td>{{$index +1 }}</td>
+                            <td>{{$category->name}}</td>
+                            <td>{{$category->products->count()}}</td>
+                            <td><a href="{{route('dashboard.products.index',['category_id'=>$category->id])}}" class="btn btn-info">@lang('site.related_products')
+                            </a></td> 
+                         
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+
+             </div>
+
+
+            </div> 
+
+
             <div class="card box-solid">
 
                 <div class="card-header">

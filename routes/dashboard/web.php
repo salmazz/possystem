@@ -1,11 +1,19 @@
 <?php 
+
+
+Route::get('/',function(){
+  return redirect('dashboard');
+});
+// Route::get('lang/{locale}', 'LangController@setLocale');
+
+
 Route::group(
   [
     'prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
    ], function(){ 
 
     Route::prefix('dashboard')->name('dashboard.')->middleware(['auth'])->group(function(){
-
+      
       
       Route::get('/','Dashboard\WelcomeController@index')->name('welcome');
        // Categoriers Routes

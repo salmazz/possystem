@@ -21,11 +21,11 @@
     </div>
     <!-- /.content-header -->
     <section class="content">
-        <div class="box box-primary">
+        <div class="card card-primary">
 
-            <div class="box-header p-3 with-border">
+            <div class="card-header p-3 with-border">
 
-                <h3 class="box-title" style="margin-bottom: 15px">@lang('site.categories')
+                <h3 class="card-title" style="margin-bottom: 15px">@lang('site.categories')
                     <small>{{ $categories->total() }}</small>
                 </h3>
 

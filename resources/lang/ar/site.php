@@ -58,7 +58,11 @@ return [
     'category' => 'القسم',
     'show_products' => 'عرض المنتجات',
     'created_at' => 'تم اضافته',
+    'english'=> 'انجليزي',
+    'arabic'=> 'عربي',
 
+
+    
     'products' => 'المنتجات',
     'product' => 'المنتج',
     'quantity' => 'الكميه',

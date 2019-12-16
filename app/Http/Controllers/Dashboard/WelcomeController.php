@@ -18,9 +18,13 @@ class WelcomeController extends Controller
         $categories_count = Category::count();
         $products_count = Product::count();
         $orders_count = Order::count();
-        $users_count = User::whereRoleIs('admin')->count();
-        $clients_count = Client
-        ::count();
+        $orders=Order::all();
+        $categories=Category::all();
+        // $products = DB::table('products')->latest()->limit(2)->get();
+      
+        return response()->json($products);
+                $users_count = User::whereRoleIs('admin')->count();
+        $clients_count = Client::count();
 
         $sales_data = Order::select(
             DB::raw('YEAR(CURRENT_TIMESTAMP) as year'),
@@ -33,6 +37,7 @@ class WelcomeController extends Controller
         // return response()->json($sales_data);
 
 
-         return view('dashboard.welcome',compact('categories_count','products_count','orders_count','users_count','clients_count','sales_data'));
+         return view('dashboard.welcome',compact('categories_count','products_count','orders_count','users_count','clients_count','sales_data','orders','categories','products'));
     }
+
 }

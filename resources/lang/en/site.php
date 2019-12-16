@@ -2,7 +2,7 @@
 
 return [
     'dashboard' => 'Dashboard',
-    'logout' => 'logout ',
+    'logout' => 'Logout ',
 
     'add' => 'add',
     'create' => 'create',
@@ -36,18 +36,18 @@ return [
     'phone' => 'phone ',
     'address' => 'address',
     'previous_orders' => 'previous orders',
-    'orders' => 'orders',
-    'add_order' => 'add order',
-    'edit_order' => 'edit order',
+    'orders' => 'Orders',
+    'add_order' => 'Add order',
+    'edit_order' => 'Edit order',
 
     'users' => 'Users',
-    'first_name' => 'first name',
-    'last_name' => 'last name',
-    'email' => 'email',
-    'image' => 'image',
-    'action' => 'action',
+    'first_name' => 'First name',
+    'last_name' => 'Last name',
+    'email' => 'Email',
+    'image' => 'Image',
+    'action' => 'Action',
 
-    'permissions' => 'premissions',
+    'permissions' => 'Premissions',
 
     'categories' => 'categories',
     'all_categories' => 'all categories',
@@ -68,6 +68,9 @@ return [
     'sale_price' => 'sale price',
     'stock' => 'stock',
     'profit_percent' => 'profit percent',
+    'arabic'=> 'Arabic',
+    'english'=> 'English',
+
 
     'ar' => [
         'name' => 'name in arabic',

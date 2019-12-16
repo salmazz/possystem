@@ -38,7 +38,7 @@
     <link href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css" rel="stylesheet" />
     @if (app()->getLocale() == 'ar')
     <link rel="stylesheet" href="{{ asset('dashboard_files/css/customrtlstyle.css') }}">
-    <link rel="stylesheet" href="{{ asset('dashboard_files/css/AdminLTE-rtl.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('dashboard_files/css/adminlte-rtl.min.css') }}">
 
     <link rel="stylesheet" href="{{ asset('dashboard_files/css/bootstrap-rtl.min.css') }}">
     <link rel="stylesheet" href="{{ asset('dashboard_files/css/rtl.css') }}">
@@ -104,7 +104,7 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
     {{-- <link rel="stylesheet" href="{{ asset('dashboard_files/css/font-awesome.min.css') }}"> --}}
-    <link rel="stylesheet" href="{{asset('dashboard_files/css/AdminLTE.min.css') }}">
+    <link rel="stylesheet" href="{{asset('dashboard_files/css/adminlte.min.css') }}">
     @endif
 </head>
 
@@ -125,6 +125,10 @@
                 <li class="nav-item d-none d-sm-inline-block">
                     {{-- <a href="{{route('dashbaord.orders')}}" class="nav-link">Orders</a> --}}
                 </li>
+                
+
+            <li class="nav-item d-none d-sm-inline-block"><a  class="nav-link" href="{{url('ar/dashboard')}}">  @lang('site.arabic') <i class="fas fa-language text-primary"></i> </a> </li>
+                <li class="nav-item d-none d-sm-inline-block"><a class="nav-link" href="{{url('en/dashboard')}}"> @lang('site.english')  <i class="fas fa-language text-danger"></i> </a> </li>
 
 
 

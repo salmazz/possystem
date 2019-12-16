@@ -28,6 +28,8 @@ class ProductController extends Controller
 
         })->latest()->paginate(5);
 
+    
+
         return view('dashboard.products.index', compact('categories', 'products'));
 
 
