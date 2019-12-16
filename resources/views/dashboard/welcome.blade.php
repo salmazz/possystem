@@ -103,7 +103,7 @@
             </div> 
 
 
-            <div class="card box-solid">
+            <div class="card card-solid">
 
                 <div class="card-header">
                     <h3 class="card-title">Sales Graph</h3>

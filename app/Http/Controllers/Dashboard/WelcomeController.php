@@ -22,7 +22,7 @@ class WelcomeController extends Controller
         $categories=Category::all();
         // $products = DB::table('products')->latest()->limit(2)->get();
       
-        return response()->json($products);
+        // return response()->json($products);
                 $users_count = User::whereRoleIs('admin')->count();
         $clients_count = Client::count();
 
@@ -37,7 +37,7 @@ class WelcomeController extends Controller
         // return response()->json($sales_data);
 
 
-         return view('dashboard.welcome',compact('categories_count','products_count','orders_count','users_count','clients_count','sales_data','orders','categories','products'));
+         return view('dashboard.welcome',compact('categories_count','products_count','orders_count','users_count','clients_count','sales_data','orders','categories'));
     }
 
 }
